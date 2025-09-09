@@ -120,6 +120,15 @@ let actions = {};
 let activeAction = null;
 let previousAction = null;
 
+// Enemy (zombie) variables
+const ENEMY_SPEED = 1.2;
+const zombies = [];
+const zombieMixers = [];
+const zombieActionsList = [];
+
+// Game state
+let gameOver = false;
+
 // Smooth animation crossfade helper
 function fadeToAction(name, duration) {
     previousAction = activeAction;
@@ -165,6 +174,27 @@ shotDisplay.style.zIndex = '1000';
 shotDisplay.style.pointerEvents = 'none';
 shotDisplay.textContent = 'Shots: 0';
 document.body.appendChild(shotDisplay);
+
+// Death overlay (hidden by default)
+const deathOverlay = document.createElement('div');
+deathOverlay.id = 'death-overlay';
+deathOverlay.style.position = 'fixed';
+deathOverlay.style.inset = '0';
+deathOverlay.style.background = 'rgba(0,0,0,0.85)';
+deathOverlay.style.display = 'none';
+deathOverlay.style.alignItems = 'center';
+deathOverlay.style.justifyContent = 'center';
+deathOverlay.style.color = 'white';
+deathOverlay.style.fontFamily = 'Arial, sans-serif';
+deathOverlay.style.fontWeight = 'bold';
+deathOverlay.style.fontSize = '64px';
+deathOverlay.style.zIndex = '2000';
+deathOverlay.textContent = 'YOU DIED';
+document.body.appendChild(deathOverlay);
+
+function showDeathOverlay() {
+    deathOverlay.style.display = 'flex';
+}
 
 // Load GLTF model
 const loader = new GLTFLoader();
@@ -214,12 +244,55 @@ loader.load('./model/RobotExpressive.glb', (gltf) => {
     console.error('Error loading model:', error);
 });
 
+// Multi-zombie spawning (triggered on start overlay)
+const zombieLoader = new GLTFLoader();
+function spawnZombies(numZombies) {
+    for (let i = 0; i < numZombies; i++) {
+        zombieLoader.load('./model/Zombie.glb', (gltf) => {
+            const zombie = gltf.scene;
+            zombie.scale.setScalar(2);
+            // Spawn around the player in a circle
+            const angle = (i / Math.max(1, numZombies)) * Math.PI * 2;
+            const radius = 18 + Math.random() * 12;
+            const spawnX = Math.cos(angle) * radius;
+            const spawnZ = Math.sin(angle) * radius;
+            zombie.position.set(spawnX, 0, spawnZ);
+            scene.add(zombie);
+
+            const mixer = new THREE.AnimationMixer(zombie);
+            const actionsMap = {};
+            gltf.animations.forEach((clip) => {
+                const action = mixer.clipAction(clip);
+                actionsMap[clip.name] = action;
+            });
+
+            // Play crawl animation if available
+            if (actionsMap['Crawl']) {
+                actionsMap['Crawl'].reset().play();
+            } else if (actionsMap['Crawling']) {
+                actionsMap['Crawling'].reset().play();
+            } else if (gltf.animations[0]) {
+                mixer.clipAction(gltf.animations[0]).reset().play();
+            }
+
+            zombies.push(zombie);
+            zombieMixers.push(mixer);
+            zombieActionsList.push(actionsMap);
+        }, (progress) => {
+            console.log('Zombie loading progress:', (progress.loaded / progress.total * 100) + '%');
+        }, (error) => {
+            console.error('Error loading zombie model:', error);
+        });
+    }
+}
+
 // Movement variables
 let walkSpeed = 0;
 let rySpeed = 0;
 let isJumping = false;
 let isWalking = false;
 let isFiring = false;
+let gameStarted = false;
 
 // Timelines for GSAP animations
 let jumpTl = gsap.timeline();
@@ -229,7 +302,7 @@ let idleTl = gsap.timeline();
 // Conditional bounce (jump)
 gsap.registerPlugin(CustomEase);
 document.addEventListener('keydown', (event) => {
-    if ((event.key === ' ') && (!jumpTl.isActive()) && robot) {
+    if ((event.key === ' ') && (!jumpTl.isActive()) && robot && !gameOver && gameStarted) {
         isJumping = true;
         
         // Crossfade to Jump
@@ -257,7 +330,7 @@ document.addEventListener('keydown', (event) => {
 
 // Conditional walk
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowUp' && robot) {
+    if (event.key === 'ArrowUp' && robot && !gameOver && gameStarted) {
         walkSpeed += 0.035;
         
         if (!isWalking && !isJumping) {
@@ -271,7 +344,7 @@ document.addEventListener('keydown', (event) => {
 
 // Rotate Left and Right
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft' && robot) {
+    if (event.key === 'ArrowLeft' && robot && !gameOver && gameStarted) {
         rySpeed += 0.05;
         if (!isWalking && !isJumping) {
             isWalking = true;
@@ -283,7 +356,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight' && robot) {
+    if (event.key === 'ArrowRight' && robot && !gameOver && gameStarted) {
         rySpeed -= 0.05;
         if (!isWalking && !isJumping) {
             isWalking = true;
@@ -298,7 +371,7 @@ let bullet = null;
 
 // Fire bullet with 'f' key
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'f' && bullet && actions['ThumbsUp'] && !isFiring) {
+    if (event.key === 'f' && bullet && actions['ThumbsUp'] && !isFiring && !gameOver && gameStarted) {
         // Block further firing attempts
         isFiring = true;
         
@@ -335,6 +408,19 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// Hook up start screen UI
+const startOverlay = document.getElementById('start-overlay');
+const startInput = document.getElementById('zombie-count');
+const startBtn = document.getElementById('start-btn');
+if (startOverlay && startInput && startBtn) {
+    startBtn.addEventListener('click', () => {
+        const value = Math.max(0, Math.min(20, parseInt(startInput.value, 10) || 0));
+        spawnZombies(value);
+        gameStarted = true;
+        startOverlay.style.display = 'none';
+    });
+}
+
 // Clock for animation mixer
 const clock = new THREE.Clock();
 
@@ -343,8 +429,9 @@ gsap.ticker.add(() => {
     const delta = clock.getDelta();
     
     // Update animation mixer
-    if (mixer) {
-        mixer.update(delta);
+    if (mixer) mixer.update(delta);
+    for (let i = 0; i < zombieMixers.length; i++) {
+        zombieMixers[i].update(delta);
     }
     
     // Update helpers visibility
@@ -354,7 +441,7 @@ gsap.ticker.add(() => {
     gridHelper.visible = params.showHelpers;
     
     // Update robot position and rotation if loaded
-    if (robot) {
+    if (robot && !gameOver) {
         // Apply movement
         robotParams.x += walkSpeed * Math.sin(robotParams.ry);
         robotParams.z += walkSpeed * Math.cos(robotParams.ry);
@@ -376,17 +463,40 @@ gsap.ticker.add(() => {
         rySpeed *= 0.9;
     }
     
+    // Enemy chase and collision
+    if (robot && zombies.length && !gameOver) {
+        for (let i = 0; i < zombies.length; i++) {
+            const z = zombies[i];
+            const toPlayer = new THREE.Vector3().subVectors(robot.position, z.position);
+            const distance = toPlayer.length();
+            if (distance > 0.0001) {
+                toPlayer.normalize();
+                z.position.addScaledVector(toPlayer, ENEMY_SPEED * delta);
+                const targetYaw = Math.atan2(toPlayer.x, toPlayer.z);
+                z.rotation.y = targetYaw;
+            }
+            if (distance < 2.0) {
+                gameOver = true;
+                showDeathOverlay();
+                break;
+            }
+        }
+    }
+
     // Update controls, stats and render
     if (bullet) {
         bullet.update();
     }
     controls.update();
 
-    const desiredCameraPosition = robot.position.clone().add(CAMERA_OFFSET.clone().applyQuaternion(robot.quaternion));
-    camera.position.lerp(desiredCameraPosition, 0.08);
-    const lookAtPos = robot.position.clone();
-    lookAtPos.y += 1.6;
-    camera.lookAt(lookAtPos);
+    // Update camera to follow robot only if robot is loaded
+    if (robot) {
+        const desiredCameraPosition = robot.position.clone().add(CAMERA_OFFSET.clone().applyQuaternion(robot.quaternion));
+        camera.position.lerp(desiredCameraPosition, 0.08);
+        const lookAtPos = robot.position.clone();
+        lookAtPos.y += 1.6;
+        camera.lookAt(lookAtPos);
+    }
 
     stats.update();
     renderer.render(scene, camera);
