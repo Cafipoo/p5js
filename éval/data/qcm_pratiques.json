@@ -1,0 +1,245 @@
+{
+  "title": "QCM Questions Pratiques et Cas d'Usage",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Vous avez une scène avec 1000 cubes qui bougent. Les FPS chutent. Quelle est la première solution à essayer ?",
+      "options": [
+        "Réduire la résolution",
+        "Utiliser InstancedMesh",
+        "Supprimer les lumières",
+        "Changer de navigateur"
+      ],
+      "correct": 1,
+      "explanation": "InstancedMesh permet de rendre des milliers d'objets identiques avec un seul draw call, améliorant drastiquement les performances."
+    },
+    {
+      "id": 2,
+      "question": "Vos particules ne sont pas supprimées correctement. Que faut-il vérifier ?",
+      "options": [
+        "Appeler geometry.dispose() et material.dispose()",
+        "Réduire le nombre de particules",
+        "Utiliser des géométries plus simples",
+        "Redémarrer le navigateur"
+      ],
+      "correct": 0,
+      "explanation": "dispose() libère les ressources GPU et évite les fuites mémoire avec les particules."
+    },
+    {
+      "id": 3,
+      "question": "Un objet passe à travers un autre. Quelle est la cause la plus probable ?",
+      "options": [
+        "La géométrie physique ne correspond pas à la géométrie visuelle",
+        "La gravité est trop faible",
+        "Les matériaux sont identiques",
+        "Le broadphase est mal configuré"
+      ],
+      "correct": 0,
+      "explanation": "Il faut que la forme physique (collision shape) corresponde à la forme visuelle pour des collisions correctes."
+    },
+    {
+      "id": 4,
+      "question": "Votre shader personnalisé ne s'affiche pas. Que vérifier en premier ?",
+      "options": [
+        "La syntaxe GLSL",
+        "Les uniformes",
+        "La géométrie",
+        "Les lumières"
+      ],
+      "correct": 0,
+      "explanation": "Une erreur de syntaxe GLSL empêche la compilation du shader et son affichage."
+    },
+    {
+      "id": 5,
+      "question": "L'animation de votre personnage est saccadée. Quelle est la solution ?",
+      "options": [
+        "Augmenter la fréquence de requestAnimationFrame",
+        "Utiliser clock.getDelta() pour l'animation",
+        "Réduire la complexité du modèle",
+        "Désactiver les ombres"
+      ],
+      "correct": 1,
+      "explanation": "clock.getDelta() fournit le temps écoulé depuis la dernière frame pour des animations fluides indépendantes du framerate."
+    },
+    {
+      "id": 6,
+      "question": "Un objet n'apparaît pas dans la scène. Que vérifier ?",
+      "options": [
+        "Position de la caméra",
+        "Position de l'objet",
+        "Matériau de l'objet",
+        "Lumières dans la scène"
+      ],
+      "correct": [1, 2, 3],
+      "explanation": "Un objet invisible peut être causé par une position incorrecte, un matériau transparent ou l'absence de lumière."
+    },
+    {
+      "id": 7,
+      "question": "Vos particules bougent trop lentement. Comment les accélérer ?",
+      "options": [
+        "Augmenter la vélocité",
+        "Réduire la gravité",
+        "Changer le matériau",
+        "Modifier la géométrie"
+      ],
+      "correct": 0,
+      "explanation": "Augmenter la vélocité initiale des particules les fait bouger plus rapidement."
+    },
+    {
+      "id": 8,
+      "question": "Une contrainte entre deux objets se casse. Pourquoi ?",
+      "options": [
+        "La distance maximale est dépassée",
+        "Les objets sont trop lourds",
+        "La gravité est trop forte",
+        "Les matériaux sont incompatibles"
+      ],
+      "correct": 0,
+      "explanation": "Les contraintes ont des limites de distance et de force, au-delà desquelles elles se cassent."
+    },
+    {
+      "id": 9,
+      "question": "Le Raycaster ne détecte pas les clics précisément. Que faire ?",
+      "options": [
+        "Vérifier les coordonnées de la souris",
+        "Augmenter la taille des objets",
+        "Changer de caméra",
+        "Utiliser des événements différents"
+      ],
+      "correct": 0,
+      "explanation": "Les coordonnées de la souris doivent être correctement converties en coordonnées normalisées (-1 à 1)."
+    },
+    {
+      "id": 10,
+      "question": "Vos textures apparaissent floues. Quelle est la solution ?",
+      "options": [
+        "Augmenter la résolution de la texture",
+        "Changer le filtre à NearestFilter",
+        "Réduire la taille de l'objet",
+        "Modifier le shader"
+      ],
+      "correct": 0,
+      "explanation": "Une texture de plus haute résolution donne des détails plus nets et moins de flou."
+    },
+    {
+      "id": 11,
+      "question": "La simulation physique est instable. Que faire ?",
+      "options": [
+        "Réduire le pas de temps (timeStep)",
+        "Augmenter la gravité",
+        "Utiliser plus d'objets",
+        "Changer de solver"
+      ],
+      "correct": 0,
+      "explanation": "Un pas de temps plus petit rend la simulation plus stable mais plus coûteuse en calculs."
+    },
+    {
+      "id": 12,
+      "question": "Vos particules disparaissent trop tôt. Comment les garder plus longtemps ?",
+      "options": [
+        "Augmenter la valeur de lifeMax",
+        "Réduire la vitesse de fade",
+        "Changer le matériau",
+        "Modifier la géométrie"
+      ],
+      "correct": 0,
+      "explanation": "lifeMax contrôle la durée de vie des particules avant qu'elles ne soient recyclées."
+    },
+    {
+      "id": 13,
+      "question": "La caméra qui suit un objet tremble. Comment stabiliser ?",
+      "options": [
+        "Utiliser lerp() pour lisser le mouvement",
+        "Réduire la vitesse de suivi",
+        "Changer de type de caméra",
+        "Désactiver les contrôles"
+      ],
+      "correct": 0,
+      "explanation": "lerp() (linear interpolation) lisse le mouvement de la caméra pour éviter les tremblements."
+    },
+    {
+      "id": 14,
+      "question": "Votre shader personnalisé ralentit l'application. Que faire ?",
+      "options": [
+        "Optimiser les calculs dans le shader",
+        "Réduire la résolution",
+        "Utiliser moins d'uniformes",
+        "Changer de matériau"
+      ],
+      "correct": 0,
+      "explanation": "Optimiser les calculs dans le shader (réduire les boucles, simplifier les formules) améliore les performances."
+    },
+    {
+      "id": 15,
+      "question": "Vous voulez que les particules se repoussent. Comment faire ?",
+      "options": [
+        "Utiliser des forces dans Cannon.js",
+        "Modifier le shader",
+        "Changer la géométrie",
+        "Utiliser des contraintes"
+      ],
+      "correct": 0,
+      "explanation": "Cannon.js permet d'appliquer des forces entre les corps physiques pour créer des interactions."
+    },
+    {
+      "id": 16,
+      "question": "Un objet passe à travers le sol. Quelle est la cause ?",
+      "options": [
+        "Le sol n'a pas de corps physique",
+        "La gravité est trop faible",
+        "L'objet est trop léger",
+        "Le matériau est incorrect"
+      ],
+      "correct": 0,
+      "explanation": "Le sol doit avoir un corps physique statique pour détecter les collisions avec les objets qui tombent."
+    },
+    {
+      "id": 17,
+      "question": "Votre animation se répète en boucle. Comment l'arrêter ?",
+      "options": [
+        "action.setLoop(THREE.LoopOnce)",
+        "action.stop()",
+        "mixer.stopAllAction()",
+        "Changer de modèle"
+      ],
+      "correct": 0,
+      "explanation": "setLoop(THREE.LoopOnce) fait que l'animation ne se joue qu'une seule fois."
+    },
+    {
+      "id": 18,
+      "question": "Les particules s'accumulent au sol. Comment les recycler ?",
+      "options": [
+        "Vérifier la position Y et les repositionner",
+        "Réduire la gravité",
+        "Augmenter la vitesse",
+        "Changer le matériau"
+      ],
+      "correct": 0,
+      "explanation": "Quand les particules atteignent le sol (Y < seuil), les repositionner près de l'émetteur."
+    },
+    {
+      "id": 19,
+      "question": "Une contrainte est trop raide et casse la simulation. Que faire ?",
+      "options": [
+        "Réduire la raideur (stiffness)",
+        "Augmenter la masse des objets",
+        "Changer de type de contrainte",
+        "Modifier la gravité"
+      ],
+      "correct": 0,
+      "explanation": "Une contrainte trop raide peut causer des instabilités, il faut réduire la raideur."
+    },
+    {
+      "id": 20,
+      "question": "Votre application est lente sur mobile. Quelle optimisation prioritaire ?",
+      "options": [
+        "Réduire le nombre d'objets",
+        "Désactiver les ombres",
+        "Utiliser des matériaux plus simples",
+        "Toutes les réponses précédentes"
+      ],
+      "correct": 3,
+      "explanation": "Sur mobile, toutes ces optimisations sont importantes : moins d'objets, pas d'ombres, matériaux simples."
+    }
+  ]
+}

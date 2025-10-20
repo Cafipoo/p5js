@@ -1,0 +1,185 @@
+{
+  "title": "QCM TD4 - Shaders WebGL",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Dans un vertex shader Three.js, que fait 'varying vec2 vUv' ?",
+      "options": [
+        "Déclare une variable uniforme",
+        "Déclare une variable qui sera passée au fragment shader",
+        "Déclare une variable locale",
+        "Déclare une texture"
+      ],
+      "correct": 1,
+      "explanation": "varying permet de passer des données du vertex shader au fragment shader."
+    },
+    {
+      "id": 2,
+      "question": "Que représentent les coordonnées UV dans un shader ?",
+      "options": [
+        "Les coordonnées 3D de l'objet",
+        "Les coordonnées de texture normalisées (0-1)",
+        "Les coordonnées de la caméra",
+        "Les coordonnées de l'écran"
+      ],
+      "correct": 1,
+      "explanation": "Les coordonnées UV sont les coordonnées de texture normalisées entre 0 et 1."
+    },
+    {
+      "id": 3,
+      "question": "Qu'est-ce que la distance signée (SDF) ?",
+      "options": [
+        "La distance entre deux points",
+        "Une fonction qui retourne la distance signée à une forme",
+        "La distance de la caméra à l'objet",
+        "La distance entre les vertices"
+      ],
+      "correct": 1,
+      "explanation": "La distance signée retourne la distance signée à une forme géométrique."
+    },
+    {
+      "id": 4,
+      "question": "Que fait la fonction opSmoothUnion() ?",
+      "options": [
+        "Combine deux formes avec des bords nets",
+        "Combine deux formes avec des bords lisses",
+        "Sépare deux formes",
+        "Calcule l'intersection de deux formes"
+      ],
+      "correct": 1,
+      "explanation": "opSmoothUnion combine deux formes avec des bords lisses pour un effet plus naturel."
+    },
+    {
+      "id": 5,
+      "question": "Dans le modèle de Phong, que calcule l'illumination diffuse ?",
+      "options": [
+        "max(dot(normal, lightDir), 0.0)",
+        "dot(normal, viewDir)",
+        "length(lightDir)",
+        "normalize(lightDir)"
+      ],
+      "correct": 0,
+      "explanation": "L'illumination diffuse utilise le produit scalaire entre la normale et la direction de la lumière."
+    },
+    {
+      "id": 6,
+      "question": "Dans Blinn-Phong, que représente halfDir ?",
+      "options": [
+        "La direction de la lumière",
+        "La direction de la vue",
+        "La moyenne entre la direction de la lumière et de la vue",
+        "La direction de la normale"
+      ],
+      "correct": 2,
+      "explanation": "halfDir est la moyenne normalisée entre la direction de la lumière et la direction de la vue."
+    },
+    {
+      "id": 7,
+      "question": "Qu'est-ce que le bruit de Perlin ?",
+      "options": [
+        "Un algorithme de génération de nombres aléatoires",
+        "Un algorithme de génération de bruit procédural lisse",
+        "Un algorithme de compression d'image",
+        "Un algorithme de détection de collision"
+      ],
+      "correct": 1,
+      "explanation": "Le bruit de Perlin génère du bruit procédural lisse utilisé pour les textures et effets."
+    },
+    {
+      "id": 8,
+      "question": "Que fait la fonction FBM ?",
+      "options": [
+        "Combine plusieurs octaves de bruit",
+        "Calcule la distance entre deux points",
+        "Génère des couleurs aléatoires",
+        "Optimise les performances"
+      ],
+      "correct": 0,
+      "explanation": "FBM (Fractional Brownian Motion) combine plusieurs octaves de bruit pour des effets plus complexes."
+    },
+    {
+      "id": 9,
+      "question": "Que sont les uniformes dans un shader ?",
+      "options": [
+        "Des variables qui changent pour chaque vertex",
+        "Des variables constantes pour tous les pixels",
+        "Des textures",
+        "Des fonctions mathématiques"
+      ],
+      "correct": 1,
+      "explanation": "Les uniformes sont des variables constantes pour tous les pixels traités par le shader."
+    },
+    {
+      "id": 10,
+      "question": "Où se fait la déformation des vertices dans un shader ?",
+      "options": [
+        "Dans le fragment shader",
+        "Dans le vertex shader",
+        "Dans le CPU",
+        "Dans la géométrie Three.js"
+      ],
+      "correct": 1,
+      "explanation": "La déformation des vertices se fait dans le vertex shader avant la rasterisation."
+    },
+    {
+      "id": 11,
+      "question": "Quelle est la particularité du bruit de Worley ?",
+      "options": [
+        "Il génère des formes circulaires",
+        "Il génère des formes cellulaires/organiques",
+        "Il est plus rapide que Perlin",
+        "Il utilise moins de mémoire"
+      ],
+      "correct": 1,
+      "explanation": "Le bruit de Worley génère des formes cellulaires et organiques, idéal pour les nuages."
+    },
+    {
+      "id": 12,
+      "question": "Pour activer la transparence dans un shader, que faut-il faire ?",
+      "options": [
+        "Utiliser gl_FragColor = vec4(color, 0.5)",
+        "Définir transparent: true dans le matériau",
+        "Utiliser alphaTest",
+        "Toutes les réponses précédentes"
+      ],
+      "correct": 3,
+      "explanation": "La transparence nécessite plusieurs éléments : alpha dans le shader, transparent: true et éventuellement alphaTest."
+    },
+    {
+      "id": 13,
+      "question": "Comment créer un motif d'échecs dans un shader ?",
+      "options": [
+        "mod(floor(uv * scale), 2.0)",
+        "sin(uv.x) * cos(uv.y)",
+        "length(uv - 0.5)",
+        "fract(uv * scale)"
+      ],
+      "correct": 0,
+      "explanation": "Le motif d'échecs utilise mod(floor(uv * scale), 2.0) pour alterner entre 0 et 1."
+    },
+    {
+      "id": 14,
+      "question": "Pour animer un shader dans le temps, quel uniforme utilise-t-on ?",
+      "options": [
+        "iResolution",
+        "iMouse",
+        "iTime",
+        "uTexture"
+      ],
+      "correct": 2,
+      "explanation": "iTime contient le temps écoulé et permet d'animer les effets dans le shader."
+    },
+    {
+      "id": 15,
+      "question": "Quelle est la différence entre une caméra orthographique et perspective ?",
+      "options": [
+        "L'orthographique n'a pas de perspective",
+        "L'orthographique est plus rapide",
+        "L'orthographique utilise moins de mémoire",
+        "Il n'y a pas de différence"
+      ],
+      "correct": 0,
+      "explanation": "La caméra orthographique projette sans perspective, contrairement à la caméra perspective."
+    }
+  ]
+}

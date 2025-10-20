@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM - Évaluation Three.js, Shaders et Physique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 QCM - Évaluation Complète</h1>
+            <p>Testez vos connaissances sur Three.js, Shaders WebGL et Physique Cannon.js</p>
+        </header>
+
+        <div class="quiz-selector">
+            <h2>Choisissez votre QCM :</h2>
+            <div class="quiz-buttons">
+                <button class="quiz-btn" data-quiz="qcm_td3">TD3 - Three.js & Particules</button>
+                <button class="quiz-btn" data-quiz="qcm_td4">TD4 - Shaders WebGL</button>
+                <button class="quiz-btn" data-quiz="qcm_tp4">TP4 - Three.js Avancé & Animations</button>
+                <button class="quiz-btn" data-quiz="qcm_tpcolision">TPColision - Physique</button>
+                <button class="quiz-btn" data-quiz="qcm_generales">Questions Générales</button>
+                <button class="quiz-btn" data-quiz="qcm_pratiques">Questions Pratiques</button>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="quiz-container" style="display: none;">
+            <div class="quiz-header">
+                <h2 id="quiz-title"></h2>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="quiz-info">
+                    <span id="question-counter">Question 1 sur 10</span>
+                    <span id="timer">⏱️ 00:00</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question" id="question-text"></div>
+                <div class="options" id="options-container"></div>
+            </div>
+
+            <div class="quiz-controls">
+                <button id="prev-btn" class="control-btn" disabled>← Précédent</button>
+                <button id="next-btn" class="control-btn">Suivant →</button>
+                <button id="submit-btn" class="control-btn submit-btn" style="display: none;">Valider le QCM</button>
+            </div>
+        </div>
+
+        <div class="results-container" id="results-container" style="display: none;">
+            <div class="results-header">
+                <h2>📊 Résultats du QCM</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score-percentage">0%</span>
+                    </div>
+                    <div class="score-details">
+                        <p><strong id="score-text">0 / 0</strong></p>
+                        <p id="score-message"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-summary">
+                <h3>📋 Résumé des réponses</h3>
+                <div id="answers-summary"></div>
+            </div>
+
+            <div class="results-actions">
+                <button id="restart-btn" class="action-btn">🔄 Recommencer</button>
+                <button id="new-quiz-btn" class="action-btn">📚 Nouveau QCM</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

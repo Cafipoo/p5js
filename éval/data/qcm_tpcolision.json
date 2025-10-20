@@ -1,0 +1,245 @@
+{
+  "title": "QCM TPColision - Physique et Détection de Collisions",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Qu'est-ce que Cannon.js ?",
+      "options": [
+        "Une bibliothèque de physique 3D pour JavaScript",
+        "Une bibliothèque de rendu 3D",
+        "Une bibliothèque d'animation",
+        "Une bibliothèque de son"
+      ],
+      "correct": 0,
+      "explanation": "Cannon.js est une bibliothèque de physique 3D qui simule les collisions, la gravité et les contraintes."
+    },
+    {
+      "id": 2,
+      "question": "Comment créer un monde physique avec gravité dans Cannon.js ?",
+      "options": [
+        "new CANNON.World({ gravity: new CANNON.Vec3(0, -9.82, 0) })",
+        "new CANNON.Scene({ gravity: 9.82 })",
+        "new CANNON.Physics({ force: -9.82 })",
+        "new CANNON.Gravity(0, -9.82, 0)"
+      ],
+      "correct": 0,
+      "explanation": "Le monde physique se crée avec new CANNON.World() et la gravité est définie par un vecteur."
+    },
+    {
+      "id": 3,
+      "question": "Quelle est la différence entre un corps statique et dynamique ?",
+      "options": [
+        "Le statique a une masse de 0",
+        "Le dynamique ne peut pas bouger",
+        "Le statique est plus lourd",
+        "Il n'y a pas de différence"
+      ],
+      "correct": 0,
+      "explanation": "Un corps statique a une masse de 0 et ne bouge pas, contrairement au corps dynamique."
+    },
+    {
+      "id": 4,
+      "question": "Quelles formes physiques sont disponibles dans Cannon.js ?",
+      "options": [
+        "Sphere, Box, Plane",
+        "Circle, Triangle, Rectangle",
+        "Cube, Cylinder, Torus",
+        "Toutes les formes géométriques"
+      ],
+      "correct": 0,
+      "explanation": "Cannon.js supporte les formes de base : Sphere, Box, Plane, Cylinder, etc."
+    },
+    {
+      "id": 5,
+      "question": "Pour synchroniser un mesh Three.js avec un corps Cannon.js, que faut-il faire ?",
+      "options": [
+        "Copier la position et la rotation",
+        "Copier seulement la position",
+        "Copier seulement la rotation",
+        "Utiliser des contraintes"
+      ],
+      "correct": 0,
+      "explanation": "Il faut copier à la fois la position et la rotation du corps physique vers le mesh visuel."
+    },
+    {
+      "id": 6,
+      "question": "À quoi servent les matériaux physiques dans Cannon.js ?",
+      "options": [
+        "À définir l'apparence visuelle",
+        "À définir les propriétés de collision (friction, restitution)",
+        "À optimiser les performances",
+        "À gérer la mémoire"
+      ],
+      "correct": 1,
+      "explanation": "Les matériaux physiques définissent les propriétés de collision comme la friction et la restitution."
+    },
+    {
+      "id": 7,
+      "question": "Que fait ContactMaterial ?",
+      "options": [
+        "Définit l'apparence des objets en contact",
+        "Définit les propriétés de collision entre deux matériaux",
+        "Crée des contraintes entre objets",
+        "Gère les événements de collision"
+      ],
+      "correct": 1,
+      "explanation": "ContactMaterial définit les propriétés de collision spécifiques entre deux matériaux."
+    },
+    {
+      "id": 8,
+      "question": "Qu'est-ce qu'une DistanceConstraint ?",
+      "options": [
+        "Une contrainte qui maintient une distance fixe entre deux corps",
+        "Une contrainte qui empêche la rotation",
+        "Une contrainte qui limite la vitesse",
+        "Une contrainte qui gère les collisions"
+      ],
+      "correct": 0,
+      "explanation": "DistanceConstraint maintient une distance fixe entre deux corps physiques."
+    },
+    {
+      "id": 9,
+      "question": "Que permet une HingeConstraint ?",
+      "options": [
+        "De maintenir une distance fixe",
+        "De permettre une rotation autour d'un axe",
+        "De bloquer complètement le mouvement",
+        "De créer des ressorts"
+      ],
+      "correct": 1,
+      "explanation": "HingeConstraint permet une rotation autour d'un axe spécifique entre deux corps."
+    },
+    {
+      "id": 10,
+      "question": "À quoi sert le Raycaster dans une simulation physique ?",
+      "options": [
+        "À détecter les collisions physiques",
+        "À interagir avec des objets 3D via la souris",
+        "À calculer les ombres",
+        "À optimiser le rendu"
+      ],
+      "correct": 1,
+      "explanation": "Le Raycaster permet de détecter les intersections entre le rayon de la souris et les objets 3D pour l'interaction."
+    },
+    {
+      "id": 11,
+      "question": "Qu'est-ce que TextGeometry dans Three.js ?",
+      "options": [
+        "Une géométrie Three.js pour créer du texte 3D",
+        "Une texture de texte",
+        "Un matériau de texte",
+        "Un shader de texte"
+      ],
+      "correct": 0,
+      "explanation": "TextGeometry permet de créer des géométries 3D à partir de texte avec une police donnée."
+    },
+    {
+      "id": 12,
+      "question": "Que fait linearFactor dans Cannon.js ?",
+      "options": [
+        "Contrôle quels axes peuvent bouger",
+        "Contrôle la vitesse de rotation",
+        "Contrôle la friction",
+        "Contrôle la restitution"
+      ],
+      "correct": 0,
+      "explanation": "linearFactor contrôle quels axes de translation sont autorisés pour un corps physique."
+    },
+    {
+      "id": 13,
+      "question": "Comment créer un effet de vague dans une simulation physique ?",
+      "options": [
+        "En appliquant des forces simultanées",
+        "En appliquant des impulsions avec des délais",
+        "En utilisant des contraintes élastiques",
+        "En modifiant la gravité"
+      ],
+      "correct": 1,
+      "explanation": "L'effet de vague est créé en appliquant des impulsions avec des délais progressifs aux objets."
+    },
+    {
+      "id": 14,
+      "question": "Qu'est-ce que le broadphase dans Cannon.js ?",
+      "options": [
+        "Un algorithme d'optimisation des collisions",
+        "Un type de matériau",
+        "Une forme géométrique",
+        "Une contrainte"
+      ],
+      "correct": 0,
+      "explanation": "Le broadphase est un algorithme qui optimise la détection de collisions en éliminant les paires impossibles."
+    },
+    {
+      "id": 15,
+      "question": "Que fait le solver dans Cannon.js ?",
+      "options": [
+        "Résout les équations de physique",
+        "Optimise le rendu",
+        "Gère la mémoire",
+        "Calcule les ombres"
+      ],
+      "correct": 0,
+      "explanation": "Le solver résout les équations de physique pour calculer les forces et mouvements."
+    },
+    {
+      "id": 16,
+      "question": "Que fait le damping (amortissement) ?",
+      "options": [
+        "Ralentit les mouvements pour plus de réalisme",
+        "Accélère les objets",
+        "Change la direction des objets",
+        "Crée des vibrations"
+      ],
+      "correct": 0,
+      "explanation": "Le damping ralentit progressivement les mouvements pour simuler la résistance de l'air ou la friction."
+    },
+    {
+      "id": 17,
+      "question": "Quelle est la différence entre applyImpulse et applyForce ?",
+      "options": [
+        "L'impulse est instantanée, la force est continue",
+        "L'impulse est plus forte",
+        "La force est plus précise",
+        "Il n'y a pas de différence"
+      ],
+      "correct": 0,
+      "explanation": "applyImpulse applique une force instantanée, tandis qu'applyForce applique une force continue."
+    },
+    {
+      "id": 18,
+      "question": "Quand les collisions sont-elles détectées dans Cannon.js ?",
+      "options": [
+        "À chaque frame",
+        "Selon la fréquence du broadphase",
+        "Seulement au démarrage",
+        "Quand on le demande"
+      ],
+      "correct": 1,
+      "explanation": "Les collisions sont détectées selon la fréquence configurée du broadphase, pas nécessairement à chaque frame."
+    },
+    {
+      "id": 19,
+      "question": "Pour améliorer les performances avec beaucoup d'objets physiques, que peut-on faire ?",
+      "options": [
+        "Utiliser allowSleep: true",
+        "Augmenter la gravité",
+        "Réduire la taille des objets",
+        "Utiliser moins de matériaux"
+      ],
+      "correct": 0,
+      "explanation": "allowSleep permet aux objets immobiles de 'dormir' et d'être ignorés par les calculs physiques."
+    },
+    {
+      "id": 20,
+      "question": "Quel est l'avantage d'utiliser Cannon.js avec Three.js ?",
+      "options": [
+        "Synchronisation automatique",
+        "Physique réaliste avec rendu 3D",
+        "Meilleures performances",
+        "Code plus simple"
+      ],
+      "correct": 1,
+      "explanation": "Cannon.js fournit la physique réaliste tandis que Three.js gère le rendu 3D visuel."
+    }
+  ]
+}

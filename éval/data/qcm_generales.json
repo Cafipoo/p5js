@@ -1,0 +1,245 @@
+{
+  "title": "QCM Questions Générales et Intégration",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Quelle est la structure typique d'une application Three.js ?",
+      "options": [
+        "Scene → Camera → Renderer → Mesh",
+        "Scene → Camera → Renderer → Geometry → Material → Mesh",
+        "Camera → Scene → Mesh → Renderer",
+        "Renderer → Scene → Camera → Mesh"
+      ],
+      "correct": 1,
+      "explanation": "La structure correcte inclut la géométrie et le matériau avant de créer le mesh final."
+    },
+    {
+      "id": 2,
+      "question": "Quelle est la meilleure pratique pour éviter les fuites mémoire avec Three.js ?",
+      "options": [
+        "Ne jamais utiliser dispose()",
+        "Toujours appeler dispose() sur les géométries et matériaux",
+        "Utiliser seulement des géométries partagées",
+        "Redémarrer l'application régulièrement"
+      ],
+      "correct": 1,
+      "explanation": "dispose() libère les ressources GPU et évite les fuites mémoire."
+    },
+    {
+      "id": 3,
+      "question": "Quelle technique améliore le plus les performances avec beaucoup d'objets similaires ?",
+      "options": [
+        "Instanced rendering",
+        "Utiliser des matériaux différents",
+        "Augmenter la résolution",
+        "Ajouter plus de lumières"
+      ],
+      "correct": 0,
+      "explanation": "L'instanced rendering permet de rendre des milliers d'objets identiques avec un seul draw call."
+    },
+    {
+      "id": 4,
+      "question": "Comment gérer les événements de clic sur des objets 3D ?",
+      "options": [
+        "Avec des event listeners sur le DOM",
+        "Avec Raycaster",
+        "Avec des callbacks sur les matériaux",
+        "Avec des timers"
+      ],
+      "correct": 1,
+      "explanation": "Raycaster permet de détecter les intersections entre le rayon de la souris et les objets 3D."
+    },
+    {
+      "id": 5,
+      "question": "Quelle est la différence entre requestAnimationFrame et setInterval ?",
+      "options": [
+        "requestAnimationFrame est synchronisé avec le refresh de l'écran",
+        "setInterval est plus précis",
+        "requestAnimationFrame est plus lent",
+        "Il n'y a pas de différence"
+      ],
+      "correct": 0,
+      "explanation": "requestAnimationFrame est synchronisé avec le refresh de l'écran pour des animations fluides."
+    },
+    {
+      "id": 6,
+      "question": "Dans Three.js, quel axe pointe vers le haut par défaut ?",
+      "options": [
+        "X",
+        "Y",
+        "Z",
+        "Cela dépend de la caméra"
+      ],
+      "correct": 1,
+      "explanation": "Dans Three.js, l'axe Y pointe vers le haut par défaut (système de coordonnées main droite)."
+    },
+    {
+      "id": 7,
+      "question": "Quelle est la différence entre MeshBasicMaterial et MeshStandardMaterial ?",
+      "options": [
+        "MeshStandardMaterial supporte l'éclairage physique",
+        "MeshBasicMaterial est plus rapide",
+        "MeshStandardMaterial a plus d'options",
+        "Toutes les réponses précédentes"
+      ],
+      "correct": 3,
+      "explanation": "MeshStandardMaterial supporte PBR, est plus réaliste mais plus coûteux que MeshBasicMaterial."
+    },
+    {
+      "id": 8,
+      "question": "Quel type de lumière est le plus réaliste pour simuler le soleil ?",
+      "options": [
+        "AmbientLight",
+        "DirectionalLight",
+        "PointLight",
+        "SpotLight"
+      ],
+      "correct": 1,
+      "explanation": "DirectionalLight simule le soleil avec des rayons parallèles et une direction constante."
+    },
+    {
+      "id": 9,
+      "question": "Pour activer les ombres dans Three.js, que faut-il faire ?",
+      "options": [
+        "renderer.shadowMap.enabled = true",
+        "scene.shadows = true",
+        "camera.shadows = true",
+        "material.shadows = true"
+      ],
+      "correct": 0,
+      "explanation": "Il faut activer les ombres sur le renderer, puis configurer les objets pour projeter/recevoir des ombres."
+    },
+    {
+      "id": 10,
+      "question": "Quel format de modèle 3D est le plus adapté pour le web ?",
+      "options": [
+        "OBJ",
+        "FBX",
+        "GLTF",
+        "3DS"
+      ],
+      "correct": 2,
+      "explanation": "GLTF est le format standard du web, optimisé pour les performances et la compatibilité."
+    },
+    {
+      "id": 11,
+      "question": "Quelle est la différence entre vertex shader et fragment shader ?",
+      "options": [
+        "Vertex shader traite les sommets, fragment shader traite les pixels",
+        "Fragment shader est plus rapide",
+        "Vertex shader gère les couleurs",
+        "Il n'y a pas de différence"
+      ],
+      "correct": 0,
+      "explanation": "Le vertex shader traite chaque sommet, le fragment shader traite chaque pixel à l'écran."
+    },
+    {
+      "id": 12,
+      "question": "Les uniformes dans un shader sont-ils :",
+      "options": [
+        "Identiques pour tous les pixels",
+        "Différents pour chaque pixel",
+        "Calculés par le CPU",
+        "Stockés dans la géométrie"
+      ],
+      "correct": 0,
+      "explanation": "Les uniformes sont des variables constantes identiques pour tous les pixels traités par le shader."
+    },
+    {
+      "id": 13,
+      "question": "Quelle est la différence entre physique continue et discrète ?",
+      "options": [
+        "Continue : calculs à chaque frame, Discrète : calculs à intervalles fixes",
+        "Continue : plus rapide, Discrète : plus précis",
+        "Continue : pour les objets statiques, Discrète : pour les objets dynamiques",
+        "Il n'y a pas de différence"
+      ],
+      "correct": 0,
+      "explanation": "La physique continue s'adapte au framerate, la discrète utilise un pas de temps fixe."
+    },
+    {
+      "id": 14,
+      "question": "Qu'est-ce que le broadphase dans la détection de collisions ?",
+      "options": [
+        "La phase finale de détection",
+        "La phase d'optimisation qui élimine les paires impossibles",
+        "La phase de calcul des forces",
+        "La phase de rendu"
+      ],
+      "correct": 1,
+      "explanation": "Le broadphase élimine rapidement les paires d'objets qui ne peuvent pas entrer en collision."
+    },
+    {
+      "id": 15,
+      "question": "Quel est le défi principal lors de l'intégration de physique et de rendu ?",
+      "options": [
+        "Synchronisation des positions et rotations",
+        "Gestion de la mémoire",
+        "Performance du rendu",
+        "Compatibilité des navigateurs"
+      ],
+      "correct": 0,
+      "explanation": "La synchronisation entre le monde physique (Cannon.js) et le monde visuel (Three.js) est cruciale."
+    },
+    {
+      "id": 16,
+      "question": "Quelle technique réduit le plus la consommation mémoire avec des particules ?",
+      "options": [
+        "Utiliser des géométries partagées",
+        "Réduire le nombre de particules",
+        "Utiliser des matériaux plus simples",
+        "Désactiver les ombres"
+      ],
+      "correct": 0,
+      "explanation": "Les géométries partagées permettent de réutiliser la même géométrie pour toutes les particules."
+    },
+    {
+      "id": 17,
+      "question": "Quel outil est le plus utile pour déboguer une scène Three.js ?",
+      "options": [
+        "console.log",
+        "THREE.SceneUtils (deprecated)",
+        "stats.js pour les FPS",
+        "THREE.WireframeHelper"
+      ],
+      "correct": 2,
+      "explanation": "stats.js affiche les FPS et permet de surveiller les performances en temps réel."
+    },
+    {
+      "id": 18,
+      "question": "Comment adapter une scène Three.js à différentes tailles d'écran ?",
+      "options": [
+        "Redimensionner le canvas et mettre à jour la caméra",
+        "Changer la résolution des textures",
+        "Réduire le nombre d'objets",
+        "Utiliser des shaders différents"
+      ],
+      "correct": 0,
+      "explanation": "Il faut redimensionner le canvas et mettre à jour l'aspect ratio de la caméra."
+    },
+    {
+      "id": 19,
+      "question": "Quel navigateur supporte le mieux WebGL ?",
+      "options": [
+        "Internet Explorer",
+        "Chrome/Firefox/Safari modernes",
+        "Edge uniquement",
+        "Tous les navigateurs"
+      ],
+      "correct": 1,
+      "explanation": "Les navigateurs modernes (Chrome, Firefox, Safari) ont le meilleur support WebGL."
+    },
+    {
+      "id": 20,
+      "question": "Quelle est la meilleure pratique pour organiser le code Three.js ?",
+      "options": [
+        "Tout dans un seul fichier",
+        "Séparer en modules (scène, caméra, objets, etc.)",
+        "Utiliser des classes globales",
+        "Éviter les commentaires"
+      ],
+      "correct": 1,
+      "explanation": "Une architecture modulaire facilite la maintenance et la réutilisation du code."
+    }
+  ]
+}

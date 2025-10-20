@@ -1,0 +1,246 @@
+{
+  "title": "TP4 - Three.js Avancé et Animations",
+  "description": "Questions sur les concepts avancés de Three.js, animations GSAP, et programmation orientée objet",
+  "questions": [
+    {
+      "id": "tp4_001",
+      "question": "Quelle est la principale différence entre MeshLambertMaterial et MeshPhongMaterial ?",
+      "options": [
+        "MeshLambertMaterial ne calcule que la diffusion, MeshPhongMaterial calcule diffusion et spéculaire",
+        "MeshLambertMaterial est plus performant mais moins réaliste",
+        "MeshPhongMaterial nécessite plus de calculs GPU",
+        "Toutes les réponses ci-dessus"
+      ],
+      "correct": 3,
+      "explanation": "MeshLambertMaterial calcule uniquement la diffusion (éclairage Lambert), tandis que MeshPhongMaterial calcule à la fois la diffusion et la spéculaire (réflexions brillantes). Cela rend MeshLambertMaterial plus performant mais moins réaliste, tandis que MeshPhongMaterial nécessite plus de calculs GPU pour un rendu plus réaliste."
+    },
+    {
+      "id": "tp4_002",
+      "question": "Dans Three.js, qu'est-ce que le shadow mapping ?",
+      "options": [
+        "Une technique pour créer des ombres réalistes",
+        "Une méthode d'optimisation du rendu",
+        "Un système de gestion de la mémoire",
+        "Une fonction de débogage"
+      ],
+      "correct": 0,
+      "explanation": "Le shadow mapping est une technique de rendu qui permet de créer des ombres réalistes en projetant les objets sur une surface. Il nécessite d'activer les ombres sur le renderer, la lumière et les objets qui doivent projeter ou recevoir des ombres."
+    },
+    {
+      "id": "tp4_003",
+      "question": "Quelle est l'utilité de la propriété 'castShadow' dans Three.js ?",
+      "options": [
+        "Définir si un objet projette des ombres",
+        "Définir si un objet reçoit des ombres",
+        "Contrôler la qualité des ombres",
+        "Activer le shadow mapping"
+      ],
+      "correct": 0,
+      "explanation": "La propriété 'castShadow' détermine si un objet projette des ombres sur d'autres objets. Elle doit être activée sur les objets qui doivent créer des ombres, en combinaison avec l'activation des ombres sur la lumière et le renderer."
+    },
+    {
+      "id": "tp4_004",
+      "question": "Qu'est-ce qu'un THREE.Group dans Three.js ?",
+      "options": [
+        "Un conteneur pour organiser plusieurs objets",
+        "Un type de géométrie",
+        "Un matériau spécial",
+        "Une caméra alternative"
+      ],
+      "correct": 0,
+      "explanation": "Un THREE.Group est un conteneur qui permet d'organiser plusieurs objets Three.js ensemble. Il hérite d'Object3D et permet de transformer, positionner et gérer plusieurs objets comme une seule entité."
+    },
+    {
+      "id": "tp4_005",
+      "question": "Dans GSAP, que fait la méthode 'yoyo' ?",
+      "options": [
+        "Répète l'animation en sens inverse",
+        "Accélère l'animation",
+        "Ralentit l'animation",
+        "Arrête l'animation"
+      ],
+      "correct": 0,
+      "explanation": "La propriété 'yoyo' dans GSAP fait que l'animation se répète en sens inverse après avoir atteint sa fin. Combinée avec 'repeat', elle crée un effet de va-et-vient."
+    },
+    {
+      "id": "tp4_006",
+      "question": "Qu'est-ce que le 'easing' dans les animations ?",
+      "options": [
+        "La vitesse de l'animation",
+        "La fonction qui définit l'accélération/décélération",
+        "La durée de l'animation",
+        "Le nombre de répétitions"
+      ],
+      "correct": 1,
+      "explanation": "L'easing (ou fonction d'accélération) définit comment l'animation accélère et décélère. Par exemple, 'ease.in' commence lentement puis accélère, 'ease.out' commence rapidement puis ralentit, et 'ease.inOut' combine les deux."
+    },
+    {
+      "id": "tp4_007",
+      "question": "Quelle est la différence entre 'duration' et 'delay' dans GSAP ?",
+      "options": [
+        "duration = temps d'attente, delay = durée totale",
+        "duration = durée de l'animation, delay = temps d'attente avant de commencer",
+        "Ils sont identiques",
+        "duration = nombre de répétitions, delay = vitesse"
+      ],
+      "correct": 1,
+      "explanation": "Dans GSAP, 'duration' définit la durée totale de l'animation, tandis que 'delay' définit le temps d'attente avant que l'animation ne commence. Par exemple, une animation de 2 secondes avec un délai de 1 seconde commencera après 1 seconde et durera 2 secondes."
+    },
+    {
+      "id": "tp4_008",
+      "question": "Qu'est-ce qu'un 'timeline' dans GSAP ?",
+      "options": [
+        "Une animation simple",
+        "Un conteneur pour plusieurs animations séquentielles",
+        "Une fonction de débogage",
+        "Un type de matériau"
+      ],
+      "correct": 1,
+      "explanation": "Un timeline GSAP est un conteneur qui permet d'organiser plusieurs animations de manière séquentielle ou parallèle. Il offre un contrôle précis sur le timing et l'ordre d'exécution des animations."
+    },
+    {
+      "id": "tp4_009",
+      "question": "Dans la programmation orientée objet JavaScript, qu'est-ce que l'héritage ?",
+      "options": [
+        "Créer une nouvelle classe à partir d'une classe existante",
+        "Copier le code d'une classe",
+        "Renommer une classe",
+        "Supprimer une classe"
+      ],
+      "correct": 0,
+      "explanation": "L'héritage permet à une classe (classe enfant) d'hériter des propriétés et méthodes d'une autre classe (classe parent). En JavaScript, cela se fait avec le mot-clé 'extends' et permet de réutiliser et étendre le code existant."
+    },
+    {
+      "id": "tp4_010",
+      "question": "Qu'est-ce que le mot-clé 'super' en JavaScript ?",
+      "options": [
+        "Une fonction de débogage",
+        "Une référence à la classe parent",
+        "Une méthode de tri",
+        "Un type de variable"
+      ],
+      "correct": 1,
+      "explanation": "Le mot-clé 'super' fait référence à la classe parent dans une classe enfant. Il permet d'appeler le constructeur de la classe parent ou d'accéder à ses méthodes depuis la classe enfant."
+    },
+    {
+      "id": "tp4_011",
+      "question": "Quelle est la différence entre 'position' et 'rotation' dans Three.js ?",
+      "options": [
+        "position = translation, rotation = rotation autour des axes",
+        "Ils sont identiques",
+        "position = échelle, rotation = position",
+        "position = couleur, rotation = matériau"
+      ],
+      "correct": 0,
+      "explanation": "Dans Three.js, 'position' définit la translation (déplacement) de l'objet dans l'espace 3D, tandis que 'rotation' définit la rotation de l'objet autour des axes X, Y et Z. Ce sont deux transformations différentes mais complémentaires."
+    },
+    {
+      "id": "tp4_012",
+      "question": "Qu'est-ce que le 'fog' dans Three.js ?",
+      "options": [
+        "Un effet de brouillard pour la profondeur",
+        "Un type de lumière",
+        "Un matériau transparent",
+        "Une fonction de débogage"
+      ],
+      "correct": 0,
+      "explanation": "Le fog (brouillard) dans Three.js est un effet qui simule la profondeur en mélangeant progressivement les objets avec une couleur de fond selon leur distance à la caméra. Il améliore la perception de la profondeur dans la scène."
+    },
+    {
+      "id": "tp4_013",
+      "question": "Dans GSAP, que fait la méthode 'isActive()' ?",
+      "options": [
+        "Active une animation",
+        "Vérifie si une animation est en cours",
+        "Arrête une animation",
+        "Répète une animation"
+      ],
+      "correct": 1,
+      "explanation": "La méthode 'isActive()' dans GSAP retourne true si l'animation ou le timeline est actuellement en cours d'exécution, et false sinon. C'est utile pour éviter les conflits d'animations ou pour créer des conditions."
+    },
+    {
+      "id": "tp4_014",
+      "question": "Qu'est-ce que le 'shadow bias' dans Three.js ?",
+      "options": [
+        "La qualité des ombres",
+        "Un décalage pour éviter les artefacts d'ombres",
+        "La couleur des ombres",
+        "La taille des ombres"
+      ],
+      "correct": 1,
+      "explanation": "Le shadow bias est un petit décalage appliqué aux ombres pour éviter les artefacts visuels comme les 'shadow acne' (ombres qui apparaissent là où elles ne devraient pas). Une valeur négative peut aider à réduire ces problèmes."
+    },
+    {
+      "id": "tp4_015",
+      "question": "Dans la programmation orientée objet, qu'est-ce qu'un 'constructor' ?",
+      "options": [
+        "Une méthode qui détruit l'objet",
+        "Une méthode spéciale appelée à la création de l'objet",
+        "Une fonction de débogage",
+        "Une propriété de l'objet"
+      ],
+      "correct": 1,
+      "explanation": "Le constructor est une méthode spéciale qui est automatiquement appelée lors de la création d'un nouvel objet à partir d'une classe. Il permet d'initialiser les propriétés de l'objet et d'effectuer toute configuration nécessaire."
+    },
+    {
+      "id": "tp4_016",
+      "question": "Quelle est la différence entre 'repeat' et 'repeatDelay' dans GSAP ?",
+      "options": [
+        "repeat = nombre de répétitions, repeatDelay = délai entre les répétitions",
+        "Ils sont identiques",
+        "repeat = durée, repeatDelay = vitesse",
+        "repeat = direction, repeatDelay = nombre"
+      ],
+      "correct": 0,
+      "explanation": "Dans GSAP, 'repeat' définit le nombre de fois que l'animation doit se répéter, tandis que 'repeatDelay' définit le délai d'attente entre chaque répétition de l'animation."
+    },
+    {
+      "id": "tp4_017",
+      "question": "Qu'est-ce que le 'shadow map size' dans Three.js ?",
+      "options": [
+        "La taille des objets qui projettent des ombres",
+        "La résolution de la texture d'ombres",
+        "La distance des ombres",
+        "La couleur des ombres"
+      ],
+      "correct": 1,
+      "explanation": "Le shadow map size définit la résolution de la texture utilisée pour calculer les ombres. Une résolution plus élevée (comme 2048x2048) donne des ombres plus nettes mais nécessite plus de mémoire GPU."
+    },
+    {
+      "id": "tp4_018",
+      "question": "Dans GSAP, que fait la méthode 'pause()' ?",
+      "options": [
+        "Supprime l'animation",
+        "Met l'animation en pause",
+        "Accélère l'animation",
+        "Répète l'animation"
+      ],
+      "correct": 1,
+      "explanation": "La méthode 'pause()' dans GSAP met l'animation en pause à sa position actuelle. L'animation peut ensuite être reprise avec 'resume()' ou 'play()'."
+    },
+    {
+      "id": "tp4_019",
+      "question": "Qu'est-ce que le 'shadow camera' dans Three.js ?",
+      "options": [
+        "Une caméra spéciale pour les ombres",
+        "La caméra principale de la scène",
+        "Un type de lumière",
+        "Une fonction de débogage"
+      ],
+      "correct": 0,
+      "explanation": "Le shadow camera est une caméra virtuelle utilisée par les lumières directionnelles pour calculer les ombres. Elle définit la zone dans laquelle les ombres sont calculées et projetées."
+    },
+    {
+      "id": "tp4_020",
+      "question": "Dans la programmation orientée objet, qu'est-ce qu'une 'méthode' ?",
+      "options": [
+        "Une propriété de l'objet",
+        "Une fonction définie dans une classe",
+        "Une variable globale",
+        "Un type de données"
+      ],
+      "correct": 1,
+      "explanation": "Une méthode est une fonction définie à l'intérieur d'une classe. Elle peut accéder aux propriétés de l'objet et effectuer des opérations spécifiques à cette classe. Les méthodes définissent le comportement des objets."
+    }
+  ]
+}

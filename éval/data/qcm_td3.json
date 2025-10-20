@@ -1,0 +1,125 @@
+{
+  "title": "QCM TD3 - Three.js et Systèmes de Particules",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Quelle est la structure de base d'une scène Three.js ?",
+      "options": [
+        "Scene → Camera → Renderer → Mesh",
+        "Scene → Camera → Renderer → Geometry → Material → Mesh",
+        "Camera → Scene → Mesh → Renderer",
+        "Renderer → Scene → Camera → Mesh"
+      ],
+      "correct": 1,
+      "explanation": "La structure correcte inclut la géométrie et le matériau avant de créer le mesh final."
+    },
+    {
+      "id": 2,
+      "question": "Pourquoi utiliser une géométrie partagée dans un système de particules ?",
+      "options": [
+        "Pour réduire la consommation mémoire",
+        "Pour améliorer les performances de rendu",
+        "Pour simplifier le code",
+        "Pour éviter les conflits de matériaux"
+      ],
+      "correct": [0, 1],
+      "explanation": "Une géométrie partagée réduit la consommation mémoire ET améliore les performances de rendu."
+    },
+    {
+      "id": 3,
+      "question": "Quel type de données est le plus efficace pour stocker les positions de particules ?",
+      "options": [
+        "Array",
+        "Float32Array",
+        "Uint32Array",
+        "Object"
+      ],
+      "correct": 1,
+      "explanation": "Float32Array est optimisé pour les calculs GPU et stocke efficacement les positions des particules."
+    },
+    {
+      "id": 4,
+      "question": "Qu'est-ce que le recyclage de particules ?",
+      "options": [
+        "Supprimer les particules mortes",
+        "Réutiliser les particules en les repositionnant",
+        "Changer la couleur des particules",
+        "Optimiser la géométrie"
+      ],
+      "correct": 1,
+      "explanation": "Le recyclage consiste à repositionner les particules mortes plutôt que de les supprimer/créer, évitant les allocations coûteuses."
+    },
+    {
+      "id": 5,
+      "question": "Quelle technique permet de créer des effets de fumée réalistes ?",
+      "options": [
+        "Particules avec textures animées",
+        "Shaders procéduraux",
+        "Modèles 3D statiques",
+        "Sprites simples"
+      ],
+      "correct": 0,
+      "explanation": "Les particules avec textures animées permettent de créer des effets de fumée réalistes avec des séquences d'images."
+    },
+    {
+      "id": 6,
+      "question": "À quoi sert le Raycaster dans Three.js ?",
+      "options": [
+        "À détecter les collisions entre particules",
+        "À interagir avec des objets 3D via la souris",
+        "À calculer les ombres",
+        "À optimiser le rendu"
+      ],
+      "correct": 1,
+      "explanation": "Le Raycaster permet de détecter les intersections entre le rayon de la souris et les objets 3D pour l'interaction."
+    },
+    {
+      "id": 7,
+      "question": "Que fait AnimationMixer dans Three.js ?",
+      "options": [
+        "Gère les transitions entre animations",
+        "Contrôle la vitesse de rendu",
+        "Optimise la mémoire",
+        "Gère les événements clavier"
+      ],
+      "correct": 0,
+      "explanation": "AnimationMixer gère les transitions et le mélange entre différentes animations d'un modèle 3D."
+    },
+    {
+      "id": 8,
+      "question": "Quel est l'avantage du format GLTF ?",
+      "options": [
+        "Taille de fichier réduite",
+        "Support des animations intégrées",
+        "Compatibilité universelle",
+        "Toutes les réponses précédentes"
+      ],
+      "correct": 3,
+      "explanation": "GLTF offre tous ces avantages : taille réduite, animations intégrées et compatibilité universelle."
+    },
+    {
+      "id": 9,
+      "question": "Que fait la méthode dispose() dans Three.js ?",
+      "options": [
+        "Libère les ressources GPU",
+        "Supprime l'objet de la scène",
+        "Optimise les performances",
+        "Toutes les réponses précédentes"
+      ],
+      "correct": 0,
+      "explanation": "dispose() libère les ressources GPU (géométries, matériaux) pour éviter les fuites mémoire."
+    },
+    {
+      "id": 10,
+      "question": "Quelle est la différence entre Points et Mesh pour les particules ?",
+      "options": [
+        "Points est plus performant pour beaucoup de particules",
+        "Mesh permet plus de détails visuels",
+        "Points ne supporte pas les textures",
+        "Toutes les réponses précédentes"
+      ],
+      "correct": 3,
+      "explanation": "Points est plus performant pour beaucoup de particules, Mesh permet plus de détails, et Points supporte les textures."
+    }
+  ]
+}
